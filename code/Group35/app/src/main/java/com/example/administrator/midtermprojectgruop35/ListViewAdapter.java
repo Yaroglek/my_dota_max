@@ -53,7 +53,7 @@ public class ListViewAdapter extends BaseAdapter {
             holder = new MyViewHolder();
             CustomHScrollView scrollView = (CustomHScrollView) view.findViewById(R.id.h_scrollView);
             holder.scrollView = scrollView;
-            holder.imageView = (ImageView) view.findViewById(R.id.Image);
+            holder.imageView = (ImageView) view.findViewById(R.id.imageView);
             holder.mTextView2 = (TextView) view.findViewById(R.id.textView_2);
             holder.mTextView3 = (TextView) view.findViewById(R.id.textView_3);
             holder.mTextView4 = (TextView) view.findViewById(R.id.textView_4);
