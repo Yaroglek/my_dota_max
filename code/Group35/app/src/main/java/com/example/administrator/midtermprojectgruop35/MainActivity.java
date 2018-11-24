@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setData(){
-        mAdapter = new ListViewAdapter(this, mDataList, mHead);
+        mAdapter = new ListViewAdapter(this, heroList, mHead);
         mListView.setAdapter(mAdapter);
     }
 
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
     private void initHero() {
         AssetManager assetManager = getAssets();
         try {
-            Workbook workbook = Workbook.getWorkbook(assetManager.open("hero_list.xlsx"));
+            Workbook workbook = Workbook.getWorkbook(assetManager.open("hero_list.xls"));
             Sheet sheet = workbook.getSheet(0);
             int sheetNum = workbook.getNumberOfSheets();
             int sheetRows = sheet.getRows();
@@ -143,12 +143,12 @@ public class MainActivity extends AppCompatActivity {
             for (int i = 1; i < sheetRows; i++) {
                 int id = Integer.valueOf(sheet.getCell(0, i).getContents());
                 String name = sheet.getCell(1, i).getContents();
-                Bitmap icon = ((BitmapDrawable) getResources().getDrawable(getResources().getIdentifier(sheet.getCell(24, i).getContents() + "_icon.png", "mipmap", getBaseContext().getPackageName()))).getBitmap();
-                Bitmap minimapIcon = ((BitmapDrawable) getResources().getDrawable(getResources().getIdentifier(sheet.getCell(24, i).getContents() + "_minimap_icon.png", "mipmap", getBaseContext().getPackageName()))).getBitmap();
+                Bitmap icon = ((BitmapDrawable) getResources().getDrawable(getResources().getIdentifier(sheet.getCell(24, i).getContents() + "_icon", "mipmap", getBaseContext().getPackageName()))).getBitmap();
+                Bitmap minimapIcon = ((BitmapDrawable) getResources().getDrawable(getResources().getIdentifier(sheet.getCell(24, i).getContents() + "_minimap_icon", "mipmap", getBaseContext().getPackageName()))).getBitmap();
                 String chineseName = sheet.getCell(2, i).getContents();
                 String nickname = sheet.getCell(3, i).getContents();
-                Hero.Species species = Hero.Species.values()[Integer.valueOf(sheet.getCell(4, i).getContents())];
-                Hero.AttackMode attackMode = Hero.AttackMode.values()[Integer.valueOf(sheet.getCell(5, i).getContents())];
+                Hero.Species species = Hero.Species.valueOf(sheet.getCell(4, i).getContents());
+                Hero.AttackMode attackMode = Hero.AttackMode.valueOf(sheet.getCell(5, i).getContents());
                 int difficult = Integer.valueOf(sheet.getCell(6, i).getContents());
                 int carry = Integer.valueOf(sheet.getCell(7, i).getContents());
                 int support = Integer.valueOf(sheet.getCell(8, i).getContents());

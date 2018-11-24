@@ -4,8 +4,8 @@ import android.graphics.Bitmap;
 
 public class Hero {
 
-    public enum Species {Strength, Agility, Intelligence};
-    public enum AttackMode {Melee, Ranged};
+    public enum Species {strength, agility, intelligence};
+    public enum AttackMode {melee, ranged};
 
     private int id;
     private String name;
