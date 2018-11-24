@@ -8,9 +8,9 @@
     android:padding="5dp" >
 
     <ImageView
-        android:id="@+id/Image"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:id="@+id/imageView"
+        android:layout_width="80dp"
+        android:layout_height="45dp"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
@@ -27,15 +27,15 @@
     <com.example.administrator.midtermprojectgruop35.InterceptScrollLinearLayout
         android:id="@+id/scroollContainter"
         android:layout_width="fill_parent"
-        android:layout_height="40dp"
+        android:layout_height="45dp"
         android:layout_alignParentRight="true"
-        android:layout_toRightOf="@id/Image"
+        android:layout_toRightOf="@id/imageView"
         android:focusable="false" >
 
         <com.example.administrator.midtermprojectgruop35.CustomHScrollView
             android:id="@+id/h_scrollView"
             android:layout_width="fill_parent"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:focusable="false"
             android:scrollbars="none" >
 
