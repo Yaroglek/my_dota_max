@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(collectFlag == false)
+                if (collectFlag == false)
                 {
                     fab.setImageDrawable(getResources().getDrawable(R.drawable.ic_back_round));
                     Toast.makeText(getApplication(), "已进入收藏夹", Toast.LENGTH_SHORT).show();
@@ -598,6 +598,10 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+    }
+
+    public void updateList() {
+        query();
     }
 }
 

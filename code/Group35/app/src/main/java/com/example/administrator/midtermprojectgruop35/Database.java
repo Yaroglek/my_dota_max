@@ -276,4 +276,20 @@ public class Database extends SQLiteOpenHelper {
         return heroList;
     }
 
+    public void updateHero(int id, String selection, int number) {
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(selection, number);
+        sqLiteDatabase.update("HERO", values, "id = ?", new String[]{id + ""});
+        sqLiteDatabase.close();
+    }
+
+    public void updateHero(int id, String selection, double number) {
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(selection, number);
+        sqLiteDatabase.update("HERO", values, "id = ?", new String[]{id + ""});
+        sqLiteDatabase.close();
+    }
+
 }
