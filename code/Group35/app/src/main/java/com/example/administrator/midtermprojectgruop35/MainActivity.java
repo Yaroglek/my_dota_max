@@ -1,5 +1,7 @@
 package com.example.administrator.midtermprojectgruop35;
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -11,6 +13,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
@@ -32,8 +36,18 @@ public class MainActivity extends AppCompatActivity {
     private int topPos;
     private List<Hero> heroList;
     private Database database;
-    CustomHScrollView mScrollView;
-    FloatingActionButton fab;
+    private CustomHScrollView mScrollView;
+    private FloatingActionButton fab;
+    private ImageView strength;
+    private ImageView agility;
+    private ImageView intelligence;
+    private boolean strengthSelected;
+    private boolean agilittySelected;
+    private boolean intelligenceSelected;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +63,43 @@ public class MainActivity extends AppCompatActivity {
         initView();
         mAdapter = new ListViewAdapter(this, heroList, mHead);
         mListView.setAdapter(mAdapter);
+        setData();
+        strength = (ImageView)findViewById(R.id.strength);
+        agility = (ImageView)findViewById(R.id.agility);
+        intelligence = (ImageView)findViewById(R.id.intelligence);
+        strengthSelected = false;
+        agilittySelected = false;
+        intelligenceSelected = false;
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.attachToListView(mListView);
+        search_click();
     }
+
+
+    private void search_click()
+    {
+        strength.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        agility.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        intelligence.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+    }
+
 
     private void initView(){
         mListView = (ListView) findViewById(R.id.list_view);
@@ -60,9 +110,11 @@ public class MainActivity extends AppCompatActivity {
         mHead.setClickable(true);
         mHead.setOnTouchListener(new MyTouchLinstener());
         mListView.setOnTouchListener(new MyTouchLinstener());
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.attachToListView(mListView);
+
     }
+
+
+
 
     private void setData(){
         mAdapter = new ListViewAdapter(this, heroList, mHead);
@@ -157,3 +209,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
+
+
+
