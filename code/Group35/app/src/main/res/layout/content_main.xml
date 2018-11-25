@@ -79,9 +79,7 @@
         android:src="@drawable/ic_launcher"
         fab:fab_colorNormal="@color/colorPrimary"
         fab:fab_colorPressed="@color/colorPrimaryDark"
-        fab:fab_colorRipple="@color/gray"
-         >
-    </com.melnykov.fab.FloatingActionButton>
+        fab:fab_colorRipple="@color/gray" />
 
 </RelativeLayout>
 

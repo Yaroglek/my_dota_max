@@ -62,6 +62,7 @@ public class ListViewAdapter extends BaseAdapter {
             holder.textViewChineseName = (TextView) view.findViewById(R.id.textViewChineseName);
             holder.textViewSpecies = (TextView) view.findViewById(R.id.textViewSpecies);
             holder.textViewAttackMode = (TextView) view.findViewById(R.id.textViewAttackMode);
+            holder.textViewDifficult = (TextView) view.findViewById(R.id.textViewDifficult);
             holder.textViewCarry = (TextView) view.findViewById(R.id.textViewCarry);
             holder.textViewSupport = (TextView) view.findViewById(R.id.textViewSupport);
             holder.textViewNuker = (TextView) view.findViewById(R.id.textViewNuker);
@@ -82,6 +83,11 @@ public class ListViewAdapter extends BaseAdapter {
         holder.textViewChineseName.setText(hero.getChineseName());
         holder.textViewSpecies.setText(Hero.speciesToString(hero.getSpecies()));
         holder.textViewAttackMode.setText(Hero.attackModeToString(hero.getAttackMode()));
+        String difficult = "";
+        for (int j = 0; j < hero.getDifficult(); j++) {
+            difficult += "★";
+        }
+        holder.textViewDifficult.setText(difficult);
         holder.textViewCarry.setText(Integer.valueOf(hero.getCarry()) > 0 ? "○" : "");
         holder.textViewSupport.setText(Integer.valueOf(hero.getSupport()) > 0 ? "○" : "");
         holder.textViewNuker.setText(Integer.valueOf(hero.getNuker()) > 0 ? "○" : "");
@@ -116,6 +122,7 @@ public class ListViewAdapter extends BaseAdapter {
         TextView textViewChineseName;
         TextView textViewSpecies;
         TextView textViewAttackMode;
+        TextView textViewDifficult;
         TextView textViewCarry;
         TextView textViewSupport;
         TextView textViewNuker;
