@@ -120,14 +120,12 @@ public class Splash extends Activity {
                 double intelligenceUp = Double.valueOf(sheet.getCell(21, i).getContents());
                 int health = Integer.valueOf(sheet.getCell(22, i).getContents());
                 int mana = Integer.valueOf(sheet.getCell(23, i).getContents());
-                //System.out.println(i);
                 database.insertHero(new Hero(id, name, icon, minimapIcon, chineseName, nickname, species, attackMode, difficult, carry, support, nuker, disabler, jungler, durable, escape, pusher, initiator, strength, agility, intelligence, strengthUp, agilityUp, intelligenceUp, health, mana));
             }
             workbook.close();
         } catch (Exception e) {
 
         }
-
     }
 
 }
