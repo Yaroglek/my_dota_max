@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_height="45dp"
+        android:layout_width="fill_parent"
+        android:background="@color/colorAccent"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:text="text"
+        android:paddingLeft="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:src = "@mipmap/abaddon_icon"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/image">
+
+        <TextView
+            android:id="@+id/hp"
+            android:layout_height="30dp"
+            android:layout_width="match_parent"
+            android:textSize="25sp"
+            android:text="HP:111"
+            android:textColor="@color/white"
+            android:gravity="right"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/mp"
+            android:layout_height="30dp"
+            android:layout_width="match_parent"
+            android:textSize="25sp"
+            android:text="MP:111"
+            android:textColor="@color/white"
+            android:gravity="right"
+            android:textStyle="bold"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/line_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        >
+
+        <TextView
+            android:id="@+id/attack_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:text="近战"
+            android:textStyle="bold"
+            />
+
+
+        <TextView
+            android:id="@+id/difficulty_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="难度：★★★"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:layout_marginLeft="20dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/line_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/line_1"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        >
+
+        <ImageView
+            android:id="@+id/strength_im"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/strength_attribute_symbol"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/strength"
+            android:layout_height="45dp"
+            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            app:layout_constraintLeft_toRightOf="@id/strength_im"
+            app:layout_constraintTop_toBottomOf="@id/hp_mp"
+            android:text="test"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/agility_im"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src = "@mipmap/agility_attribute_symbol"
+            app:layout_constraintLeft_toRightOf="@id/strength"
+            android:layout_marginLeft="20dp"
+            />
+
+        <TextView
+            android:id="@+id/agility"
+            android:layout_height="45dp"
+            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            app:layout_constraintLeft_toRightOf="@id/agility_im"
+            android:text="test"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+            />
+
+
+        <ImageView
+            android:id="@+id/iq_im"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src = "@mipmap/intelligence_attribute_symbol"
+            app:layout_constraintLeft_toRightOf="@id/agility"
+            android:layout_marginLeft="20dp"
+            />
+
+        <TextView
+            android:id="@+id/iq"
+            android:layout_height="45dp"
+            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            app:layout_constraintLeft_toRightOf="@id/iq_im"
+            android:text="test"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/line_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/line_2"
+        android:layout_marginTop="5dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/up_strength_im"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src = "@mipmap/strength_attribute_symbol_up"
+            app:layout_constraintLeft_toRightOf="@id/strength"
+            />
+
+        <TextView
+            android:id="@+id/up_strength"
+            android:layout_height="45dp"
+            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            android:text="test"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/up_agility_im"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src = "@mipmap/agility_attribute_symbol_up"
+            android:layout_marginLeft="20dp"
+            />
+
+        <TextView
+            android:id="@+id/up_agility"
+            android:layout_height="45dp"
+            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            android:text="test"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/up_iq_im"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src = "@mipmap/intelligence_attribute_symbol_up"
+            android:layout_marginLeft="20dp"
+            />
+
+        <TextView
+            android:id="@+id/up_iq"
+            android:layout_height="45dp"
+            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            android:text="test"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+            />
+    </LinearLayout>
+
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>
