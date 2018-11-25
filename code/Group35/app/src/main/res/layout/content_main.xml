@@ -11,10 +11,39 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/strength"
+        android:src="@mipmap/strength_attribute_symbol"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/agility"
+        android:layout_toRightOf="@+id/strength"
+        android:src="@mipmap/agility_attribute_symbol"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/intelligence"
+        android:layout_toRightOf="@+id/agility"
+        android:src="@mipmap/intelligence_attribute_symbol"
+        />
+
     <include
         android:id="@+id/head_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/intelligence"
         layout="@layout/list_item"
         />
+
+
 
     <TextView
         android:layout_width="80dp"
@@ -23,7 +52,7 @@
         android:background="@null"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="35dp"
         android:textColor="@color/black"
         android:gravity="center"
         android:textSize="14sp"/>
@@ -32,11 +61,13 @@
         android:id="@+id/list_view"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/head_layout"
+        android:layout_below="@id/head_layout"
         android:cacheColorHint="@android:color/transparent"
         android:dividerHeight="1dp"
         android:divider="@color/gray">
     </ListView>
+
+
 
     <com.melnykov.fab.FloatingActionButton
         android:id="@+id/fab"
@@ -49,7 +80,8 @@
         fab:fab_colorNormal="@color/colorPrimary"
         fab:fab_colorPressed="@color/colorPrimaryDark"
         fab:fab_colorRipple="@color/gray"
-         />
+         >
+    </com.melnykov.fab.FloatingActionButton>
 
 </RelativeLayout>
 

@@ -1,18 +1,27 @@
 package com.example.administrator.midtermprojectgruop35;
 
+import android.content.DialogInterface;
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.melnykov.fab.FloatingActionButton;
@@ -31,9 +40,19 @@ public class MainActivity extends AppCompatActivity {
     private int leftPos;//用于记录CustomHScrollView的初始位置
     private int topPos;
     private List<Hero> heroList;
+    private List<Hero> collectList;
+    private List<Hero> selectList;
     private Database database;
-    CustomHScrollView mScrollView;
-    FloatingActionButton fab;
+    private boolean collectFlag;
+    private CustomHScrollView mScrollView;
+
+    private FloatingActionButton fab;
+    private ImageView strength;
+    private ImageView agility;
+    private ImageView intelligence;
+    private boolean strengthSelected;
+    private boolean agilittySelected;
+    private boolean intelligenceSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +63,161 @@ public class MainActivity extends AppCompatActivity {
         if (heroList.size() == 0) {
             initHero();
         }
+        collectList = database.listCollect();
+        collectFlag = false;
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         initView();
         mAdapter = new ListViewAdapter(this, heroList, mHead);
         mListView.setAdapter(mAdapter);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.attachToListView(mListView);
+
+
+        mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+                final Hero hero = (Hero) mAdapter.getItem(position);
+                if (collectFlag) {
+                    dialog.setMessage("取消收藏?");
+                    dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            database.deleteCollect(hero.getId());
+                            collectList = database.listCollect();
+                            mAdapter.setList(collectList);
+                            mAdapter.notifyDataSetChanged();
+                        }
+                    });
+                }
+                else {
+                    dialog.setMessage("收藏英雄?");
+                    dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            database.insertCollect(hero.getId());
+                            collectList = database.listCollect();
+                        }
+                    });
+                }
+                dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                dialog.show();
+                return true;
+            }
+        });
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAdapter.setList(collectFlag ? heroList : collectList);
+                mAdapter.notifyDataSetChanged();
+                collectFlag = !collectFlag;
+            }
+        });
+        strength = (ImageView)findViewById(R.id.strength);
+        agility = (ImageView)findViewById(R.id.agility);
+        intelligence = (ImageView)findViewById(R.id.intelligence);
+        strengthSelected = true;
+        agilittySelected = true;
+        intelligenceSelected = true;
+        searchClick();
+    }
+
+
+    private void searchClick()
+    {
+        strength.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                strength.setImageResource(R.mipmap.strength_attribute_symbol);
+                if (strengthSelected && agilittySelected && intelligenceSelected || !strengthSelected && (agilittySelected || intelligenceSelected)) {
+                    agilittySelected = false;
+                    intelligenceSelected = false;
+                    agility.setImageResource(R.mipmap.agility_attribute_symbol_gray);
+                    intelligence.setImageResource(R.mipmap.intelligence_attribute_symbol_gray);
+                    if (collectFlag) {
+                        selectList = database.queryCollect("species = " + Hero.Species.strength.ordinal());
+                    }
+                    else {
+                        selectList = database.queryHero("species = " + Hero.Species.strength.ordinal());
+                    }
+                    mAdapter.setList(selectList);
+                }
+                else {
+                    agilittySelected = true;
+                    intelligenceSelected = true;
+                    agility.setImageResource(R.mipmap.agility_attribute_symbol);
+                    intelligence.setImageResource(R.mipmap.intelligence_attribute_symbol);
+                    mAdapter.setList(collectFlag ? collectList : heroList);
+                }
+                mAdapter.notifyDataSetChanged();
+                strengthSelected = true;
+            }
+        });
+
+        agility.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                agility.setImageResource(R.mipmap.agility_attribute_symbol);
+                if (strengthSelected && agilittySelected && intelligenceSelected || !agilittySelected && (strengthSelected || intelligenceSelected)) {
+                    strengthSelected = false;
+                    intelligenceSelected = false;
+                    strength.setImageResource(R.mipmap.strength_attribute_symbol_gray);
+                    intelligence.setImageResource(R.mipmap.intelligence_attribute_symbol_gray);
+                    if (collectFlag) {
+                        selectList = database.queryCollect("species = " + Hero.Species.agility.ordinal());
+                    }
+                    else {
+                        selectList = database.queryHero("species = " + Hero.Species.agility.ordinal());
+                    }
+                    mAdapter.setList(selectList);
+                }
+                else {
+                    strengthSelected = true;
+                    intelligenceSelected = true;
+                    strength.setImageResource(R.mipmap.strength_attribute_symbol);
+                    intelligence.setImageResource(R.mipmap.intelligence_attribute_symbol);
+                    mAdapter.setList(collectFlag ? collectList : heroList);
+                }
+                mAdapter.notifyDataSetChanged();
+                agilittySelected = true;
+            }
+        });
+
+        intelligence.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intelligence.setImageResource(R.mipmap.intelligence_attribute_symbol);
+                if (strengthSelected && agilittySelected && intelligenceSelected || !intelligenceSelected && (strengthSelected || agilittySelected)) {
+                    strengthSelected = false;
+                    agilittySelected = false;
+                    strength.setImageResource(R.mipmap.strength_attribute_symbol_gray);
+                    agility.setImageResource(R.mipmap.agility_attribute_symbol_gray);
+                    if (collectFlag) {
+                        selectList = database.queryCollect("species = " + Hero.Species.intelligence.ordinal());
+                    }
+                    else {
+                        selectList = database.queryHero("species = " + Hero.Species.intelligence.ordinal());
+                    }
+                    mAdapter.setList(selectList);
+                }
+                else {
+                    strengthSelected = true;
+                    agilittySelected = true;
+                    strength.setImageResource(R.mipmap.strength_attribute_symbol);
+                    agility.setImageResource(R.mipmap.agility_attribute_symbol);
+                    mAdapter.setList(collectFlag ? collectList : heroList);
+                }
+                mAdapter.notifyDataSetChanged();
+                intelligenceSelected = true;
+            }
+        });
     }
 
     private void initView(){
@@ -60,9 +229,8 @@ public class MainActivity extends AppCompatActivity {
         mHead.setClickable(true);
         mHead.setOnTouchListener(new MyTouchLinstener());
         mListView.setOnTouchListener(new MyTouchLinstener());
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.attachToListView(mListView);
     }
+
 
     private void setData(){
         mAdapter = new ListViewAdapter(this, heroList, mHead);
@@ -73,6 +241,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean onTouch(View arg0, MotionEvent arg1) {
+            arg0.getParent().requestDisallowInterceptTouchEvent(true);
             //当在表头和listView控件上touch时，将事件分发给 ScrollView
             HorizontalScrollView headSrcrollView = (HorizontalScrollView) mHead.findViewById(R.id.h_scrollView);
             headSrcrollView.onTouchEvent(arg1);
@@ -157,3 +326,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
+
+
+

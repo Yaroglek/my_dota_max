@@ -58,6 +58,7 @@ public class Hero {
     private int health;
     private int mana;
 
+
     public Hero(int id, String name, Bitmap icon, Bitmap minimapIcon, String chineseName, String nickname, Species species, AttackMode attackMode, int difficult, int carry, int support, int nuker, int disabler, int jungler, int durable, int escape, int pusher, int initiator, int strength, int agility, int intelligence, double strengthUp, double agilityUp, double intelligenceUp, int health, int mana) {
         this.id = id;
         this.name = name;
