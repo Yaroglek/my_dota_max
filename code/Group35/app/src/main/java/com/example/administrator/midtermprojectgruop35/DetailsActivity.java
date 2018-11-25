@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DetailsActivity extends AppCompatActivity {
 
     private Hero hero;
@@ -66,5 +69,28 @@ public class DetailsActivity extends AppCompatActivity {
         mini_img=findViewById(R.id.detail_mini_img);
         mini_bitmap=hero.getMinimapIcon();
         mini_img.setImageBitmap(mini_bitmap);
+
+        RadarView mRdv = (RadarView) findViewById(R.id.rdv);
+        List<Double> data;
+        data=new ArrayList<>(9);
+        double temp = hero.getCarry();
+        data.add(temp);
+        temp = hero.getSupport();
+        data.add(temp);
+        temp = hero.getNuker();
+        data.add(temp);
+        temp = hero.getDisabler();
+        data.add(temp);
+        temp = hero.getJungler();
+        data.add(temp);
+        temp = hero.getDurable();
+        data.add(temp);
+        temp = hero.getEscape();
+        data.add(temp);
+        temp = hero.getPusher();
+        data.add(temp);
+        temp = hero.getInitiator();
+        data.add(temp);
+        mRdv.setData(data);
     }
 }
