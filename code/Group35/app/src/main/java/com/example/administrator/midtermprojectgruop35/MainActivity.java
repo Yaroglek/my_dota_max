@@ -1,8 +1,7 @@
 package com.example.administrator.midtermprojectgruop35;
 
 import android.content.DialogInterface;
-import android.animation.AnimatorInflater;
-import android.animation.AnimatorSet;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -17,16 +16,12 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.melnykov.fab.FloatingActionButton;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jxl.Sheet;
@@ -73,6 +68,17 @@ public class MainActivity extends AppCompatActivity {
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.attachToListView(mListView);
 
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                Intent intent = new Intent(MainActivity.this, DetailsActivity.this);
+                Bundle bundle = new Bundle();
+                bundle.putInt("id", ((Hero) mAdapter.getItem(position)).getId());
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+
         mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
@@ -114,6 +120,12 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                strengthSelected = true;
+                agilittySelected = true;
+                intelligenceSelected = true;
+                strength.setImageResource(R.mipmap.strength_attribute_symbol);
+                agility.setImageResource(R.mipmap.agility_attribute_symbol);
+                intelligence.setImageResource(R.mipmap.intelligence_attribute_symbol);
                 mAdapter.setList(collectFlag ? heroList : collectList);
                 mAdapter.notifyDataSetChanged();
                 collectFlag = !collectFlag;

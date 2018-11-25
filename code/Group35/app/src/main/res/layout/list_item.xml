@@ -116,6 +116,27 @@
                     android:orientation="vertical" >
 
                     <TextView
+                        android:id="@+id/textViewDifficult"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:gravity="center"
+                        android:text="难度"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
                         android:id="@+id/textViewCarry"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
