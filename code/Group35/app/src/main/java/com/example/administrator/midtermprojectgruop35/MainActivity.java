@@ -92,8 +92,6 @@ public class MainActivity extends AppCompatActivity {
         */
         collectList = database.listCollect();
         collectFlag = false;
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         initView();
         mAdapter = new ListViewAdapter(this, heroList, mHead);
         mListView.setAdapter(mAdapter);
