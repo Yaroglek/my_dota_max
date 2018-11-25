@@ -32,7 +32,7 @@
         android:id="@+id/list_view"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/head_layout"
+        android:layout_below="@id/head_layout"
         android:cacheColorHint="@android:color/transparent"
         android:dividerHeight="1dp"
         android:divider="@color/gray">

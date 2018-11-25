@@ -1,18 +1,24 @@
 package com.example.administrator.midtermprojectgruop35;
 
+import android.content.DialogInterface;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.melnykov.fab.FloatingActionButton;
@@ -31,9 +37,13 @@ public class MainActivity extends AppCompatActivity {
     private int leftPos;//用于记录CustomHScrollView的初始位置
     private int topPos;
     private List<Hero> heroList;
+    private List<Hero> collectList;
+    private List<Hero> selectList;
     private Database database;
-    CustomHScrollView mScrollView;
-    FloatingActionButton fab;
+    private boolean collectFlag;
+    private CustomHScrollView mScrollView;
+
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +54,60 @@ public class MainActivity extends AppCompatActivity {
         if (heroList.size() == 0) {
             initHero();
         }
+        collectList = database.listCollect();
+        collectFlag = false;
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         initView();
         mAdapter = new ListViewAdapter(this, heroList, mHead);
         mListView.setAdapter(mAdapter);
+
+        mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+                final Hero hero = (Hero) mAdapter.getItem(position);
+                if (collectFlag) {
+                    dialog.setMessage("取消收藏?");
+                    dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            database.deleteCollect(hero.getId());
+                            collectList = database.listCollect();
+                            mAdapter.setList(collectList);
+                            mAdapter.notifyDataSetChanged();
+                        }
+                    });
+                }
+                else {
+                    dialog.setMessage("收藏英雄?");
+                    dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            database.insertCollect(hero.getId());
+                            collectList = database.listCollect();
+                        }
+                    });
+                }
+                dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                dialog.show();
+                return true;
+            }
+        });
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAdapter.setList(collectFlag ? heroList : collectList);
+                mAdapter.notifyDataSetChanged();
+                collectFlag = !collectFlag;
+            }
+        });
     }
 
     private void initView(){
@@ -73,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean onTouch(View arg0, MotionEvent arg1) {
+            arg0.getParent().requestDisallowInterceptTouchEvent(true);
             //当在表头和listView控件上touch时，将事件分发给 ScrollView
             HorizontalScrollView headSrcrollView = (HorizontalScrollView) mHead.findViewById(R.id.h_scrollView);
             headSrcrollView.onTouchEvent(arg1);

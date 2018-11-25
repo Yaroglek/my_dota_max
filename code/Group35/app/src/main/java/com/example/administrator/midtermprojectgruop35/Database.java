@@ -21,6 +21,8 @@ public class Database extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String CREATE_TABLE_HERO = "CREATE TABLE if not exists HERO (id INTEGER PRIMARY KEY, name TEXT, icon BLOB, minimap_icon BLOB, chinese_name TEXT, nickname TEXT, species INTEGER, attack_mode INTEGER, difficult INTEGER, carry INTEGER, support INTEGER, nuker INTEGER, disabler INTEGER, jungler INTEGER, durable INTEGER, escape_ INTEGER, pusher INTEGER, initiator INTEGER, strength INTEGER, agility INTEGER, intelligence INTEGER, strength_up REAL, agility_up REAL, intelligence_up REAL, health INTEGER, mana INTEGER)";
         sqLiteDatabase.execSQL(CREATE_TABLE_HERO);
+        String CREATE_TABLE_COLLECT = "CREATE TABLE if not exists COLLECT (id INTERGER PRIMARY KEY REFERENCES HERO(id) ON DELETE CASCADE ON UPDATE CASCADE)";
+        sqLiteDatabase.execSQL(CREATE_TABLE_COLLECT);
     }
 
     @Override
@@ -108,6 +110,45 @@ public class Database extends SQLiteOpenHelper {
         return heroList;
     }
 
+    public Hero queryHero(int id) {
+        Hero hero = null;
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.query("HERO", null, "id = ?", new String[] {id + ""}, null, null, null);
+        while (cursor.moveToNext()) {
+            String name = cursor.getString(1);
+            byte[] bytesIcon = cursor.getBlob(2);
+            Bitmap icon = BitmapFactory.decodeByteArray(bytesIcon, 0, bytesIcon.length);
+            byte[] bytesMinimapIcon = cursor.getBlob(3);
+            Bitmap minimapIcon = BitmapFactory.decodeByteArray(bytesMinimapIcon, 0, bytesMinimapIcon.length);
+            String chineseName = cursor.getString(4);
+            String nickname = cursor.getString(5);
+            Hero.Species species = Hero.Species.values()[cursor.getInt(6)];
+            Hero.AttackMode attackMode = Hero.AttackMode.values()[cursor.getInt(7)];
+            int difficult = cursor.getInt(8);
+            int carry = cursor.getInt(9);
+            int support = cursor.getInt(10);
+            int nuker = cursor.getInt(11);
+            int disabler = cursor.getInt(12);
+            int jungler = cursor.getInt(13);
+            int durable = cursor.getInt(14);
+            int escape = cursor.getInt(15);
+            int pusher = cursor.getInt(16);
+            int initiator = cursor.getInt(17);
+            int strength = cursor.getInt(18);
+            int agility = cursor.getInt(19);
+            int intelligence = cursor.getInt(20);
+            double strengthUp = cursor.getDouble(21);
+            double agilityUp = cursor.getDouble(22);
+            double intelligenceUp = cursor.getDouble(23);
+            int health = cursor.getInt(24);
+            int mana = cursor.getInt(25);
+            hero = new Hero(id, name, icon, minimapIcon, chineseName, nickname, species, attackMode, difficult, carry, support, nuker, disabler, jungler, durable, escape, pusher, initiator, strength, agility, intelligence, strengthUp, agilityUp, intelligenceUp, health, mana);
+        }
+        cursor.close();
+        sqLiteDatabase.close();
+        return hero;
+    }
+
     public void deleteHero(int id) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         sqLiteDatabase.delete("HERO", "id = ?", new String[] {id + ""});
@@ -154,10 +195,44 @@ public class Database extends SQLiteOpenHelper {
         return heroList;
     }
 
-    public void deleteLike(int cid, String username) {
+    public void insertCollect(int id) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        sqLiteDatabase.delete("LIKE_", "cid = ? AND username = ?", new String[] {cid + "", username});
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("id", id);
+        sqLiteDatabase.insert("COLLECT", null, contentValues);
         sqLiteDatabase.close();
+    }
+
+    public List<Hero> listCollect() {
+        List<Hero> heroList = new ArrayList<Hero>();
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.query("COLLECT", null, null, null, null, null, null);
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            heroList.add(queryHero(id));
+        }
+        cursor.close();
+        sqLiteDatabase.close();
+        return heroList;
+    }
+
+    public void deleteCollect(int id) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        sqLiteDatabase.delete("COLLECT", "id = ?", new String[] {id + ""});
+        sqLiteDatabase.close();
+    }
+
+    public boolean isCollected(int id) {
+        List<Hero> heroList = new ArrayList<Hero>();
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.query("COLLECT", null, "id = ?", new String[] {id + ""}, null, null, null);
+        boolean findFlag = false;
+        while (cursor.moveToNext()) {
+            findFlag = true;
+        }
+        cursor.close();
+        sqLiteDatabase.close();
+        return findFlag;
     }
 
 }

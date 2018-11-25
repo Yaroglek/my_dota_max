@@ -30,6 +30,10 @@ public class ListViewAdapter extends BaseAdapter {
         this.mInflater = LayoutInflater.from(context);
     }
 
+    public void setList(List<Hero> list) {
+        this.mList = list;
+    }
+
     @Override
     public int getCount() {
         return mList.size();
@@ -107,7 +111,7 @@ public class ListViewAdapter extends BaseAdapter {
         }
     };
 
-    class MyViewHolder{
+    class MyViewHolder {
         ImageView imageViewIcon;
         TextView textViewChineseName;
         TextView textViewSpecies;
