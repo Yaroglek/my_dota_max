@@ -1,6 +1,8 @@
 package com.example.administrator.midtermprojectgruop35;
 
 import android.content.DialogInterface;
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -15,6 +17,7 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -44,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
     private CustomHScrollView mScrollView;
 
     private FloatingActionButton fab;
+    private ImageView strength;
+    private ImageView agility;
+    private ImageView intelligence;
+    private boolean strengthSelected;
+    private boolean agilittySelected;
+    private boolean intelligenceSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
         initView();
         mAdapter = new ListViewAdapter(this, heroList, mHead);
         mListView.setAdapter(mAdapter);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.attachToListView(mListView);
 
         mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -108,6 +119,104 @@ public class MainActivity extends AppCompatActivity {
                 collectFlag = !collectFlag;
             }
         });
+        strength = (ImageView)findViewById(R.id.strength);
+        agility = (ImageView)findViewById(R.id.agility);
+        intelligence = (ImageView)findViewById(R.id.intelligence);
+        strengthSelected = true;
+        agilittySelected = true;
+        intelligenceSelected = true;
+        searchClick();
+    }
+
+
+    private void searchClick()
+    {
+        strength.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                strength.setImageResource(R.mipmap.strength_attribute_symbol);
+                if (strengthSelected && agilittySelected && intelligenceSelected || !strengthSelected && (agilittySelected || intelligenceSelected)) {
+                    agilittySelected = false;
+                    intelligenceSelected = false;
+                    agility.setImageResource(R.mipmap.agility_attribute_symbol_gray);
+                    intelligence.setImageResource(R.mipmap.intelligence_attribute_symbol_gray);
+                    if (collectFlag) {
+                        selectList = database.queryCollect("species = " + Hero.Species.strength.ordinal());
+                    }
+                    else {
+                        selectList = database.queryHero("species = " + Hero.Species.strength.ordinal());
+                    }
+                    mAdapter.setList(selectList);
+                }
+                else {
+                    agilittySelected = true;
+                    intelligenceSelected = true;
+                    agility.setImageResource(R.mipmap.agility_attribute_symbol);
+                    intelligence.setImageResource(R.mipmap.intelligence_attribute_symbol);
+                    mAdapter.setList(collectFlag ? collectList : heroList);
+                }
+                mAdapter.notifyDataSetChanged();
+                strengthSelected = true;
+            }
+        });
+
+        agility.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                agility.setImageResource(R.mipmap.agility_attribute_symbol);
+                if (strengthSelected && agilittySelected && intelligenceSelected || !agilittySelected && (strengthSelected || intelligenceSelected)) {
+                    strengthSelected = false;
+                    intelligenceSelected = false;
+                    strength.setImageResource(R.mipmap.strength_attribute_symbol_gray);
+                    intelligence.setImageResource(R.mipmap.intelligence_attribute_symbol_gray);
+                    if (collectFlag) {
+                        selectList = database.queryCollect("species = " + Hero.Species.agility.ordinal());
+                    }
+                    else {
+                        selectList = database.queryHero("species = " + Hero.Species.agility.ordinal());
+                    }
+                    mAdapter.setList(selectList);
+                }
+                else {
+                    strengthSelected = true;
+                    intelligenceSelected = true;
+                    strength.setImageResource(R.mipmap.strength_attribute_symbol);
+                    intelligence.setImageResource(R.mipmap.intelligence_attribute_symbol);
+                    mAdapter.setList(collectFlag ? collectList : heroList);
+                }
+                mAdapter.notifyDataSetChanged();
+                agilittySelected = true;
+            }
+        });
+
+        intelligence.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intelligence.setImageResource(R.mipmap.intelligence_attribute_symbol);
+                if (strengthSelected && agilittySelected && intelligenceSelected || !intelligenceSelected && (strengthSelected || agilittySelected)) {
+                    strengthSelected = false;
+                    agilittySelected = false;
+                    strength.setImageResource(R.mipmap.strength_attribute_symbol_gray);
+                    agility.setImageResource(R.mipmap.agility_attribute_symbol_gray);
+                    if (collectFlag) {
+                        selectList = database.queryCollect("species = " + Hero.Species.intelligence.ordinal());
+                    }
+                    else {
+                        selectList = database.queryHero("species = " + Hero.Species.intelligence.ordinal());
+                    }
+                    mAdapter.setList(selectList);
+                }
+                else {
+                    strengthSelected = true;
+                    agilittySelected = true;
+                    strength.setImageResource(R.mipmap.strength_attribute_symbol);
+                    agility.setImageResource(R.mipmap.agility_attribute_symbol);
+                    mAdapter.setList(collectFlag ? collectList : heroList);
+                }
+                mAdapter.notifyDataSetChanged();
+                intelligenceSelected = true;
+            }
+        });
     }
 
     private void initView(){
@@ -119,9 +228,8 @@ public class MainActivity extends AppCompatActivity {
         mHead.setClickable(true);
         mHead.setOnTouchListener(new MyTouchLinstener());
         mListView.setOnTouchListener(new MyTouchLinstener());
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.attachToListView(mListView);
     }
+
 
     private void setData(){
         mAdapter = new ListViewAdapter(this, heroList, mHead);
@@ -217,3 +325,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
+
+
+

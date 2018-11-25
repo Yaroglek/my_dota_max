@@ -73,7 +73,7 @@ public class Database extends SQLiteOpenHelper {
     public List<Hero> queryHero(String selection) {
         List<Hero> heroList = new ArrayList<Hero>();
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.query("HERO", null, selection + " >= ?", new String[] {0 + ""}, null, null, null);
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT y.* FROM HERO y WHERE  y." + selection, null);
         while (cursor.moveToNext()) {
             int id = cursor.getInt(0);
             String name = cursor.getString(1);
@@ -233,6 +233,46 @@ public class Database extends SQLiteOpenHelper {
         cursor.close();
         sqLiteDatabase.close();
         return findFlag;
+    }
+
+    public List<Hero> queryCollect(String selection) {
+        List<Hero> heroList = new ArrayList<Hero>();
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT y.* FROM COLLECT x, HERO y WHERE x.id = y.id AND y." + selection, null);
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            byte[] bytesIcon = cursor.getBlob(2);
+            Bitmap icon = BitmapFactory.decodeByteArray(bytesIcon, 0, bytesIcon.length);
+            byte[] bytesMinimapIcon = cursor.getBlob(3);
+            Bitmap minimapIcon = BitmapFactory.decodeByteArray(bytesMinimapIcon, 0, bytesMinimapIcon.length);
+            String chineseName = cursor.getString(4);
+            String nickname = cursor.getString(5);
+            Hero.Species species = Hero.Species.values()[cursor.getInt(6)];
+            Hero.AttackMode attackMode = Hero.AttackMode.values()[cursor.getInt(7)];
+            int difficult = cursor.getInt(8);
+            int carry = cursor.getInt(9);
+            int support = cursor.getInt(10);
+            int nuker = cursor.getInt(11);
+            int disabler = cursor.getInt(12);
+            int jungler = cursor.getInt(13);
+            int durable = cursor.getInt(14);
+            int escape = cursor.getInt(15);
+            int pusher = cursor.getInt(16);
+            int initiator = cursor.getInt(17);
+            int strength = cursor.getInt(18);
+            int agility = cursor.getInt(19);
+            int intelligence = cursor.getInt(20);
+            double strengthUp = cursor.getDouble(21);
+            double agilityUp = cursor.getDouble(22);
+            double intelligenceUp = cursor.getDouble(23);
+            int health = cursor.getInt(24);
+            int mana = cursor.getInt(25);
+            heroList.add(new Hero(id, name, icon, minimapIcon, chineseName, nickname, species, attackMode, difficult, carry, support, nuker, disabler, jungler, durable, escape, pusher, initiator, strength, agility, intelligence, strengthUp, agilityUp, intelligenceUp, health, mana));
+        }
+        cursor.close();
+        sqLiteDatabase.close();
+        return heroList;
     }
 
 }
