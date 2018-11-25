@@ -176,6 +176,8 @@ public void updateHero(int id, String selection, double number) {
 
 举例. 我想筛选出所有敏捷英雄, 远程英雄, 核心英雄, 控制英雄. 只需如图点击即可筛选. 筛选出了`巨魔战将`和`卓尔游侠`.
 
+![输入图片说明](https://images.gitee.com/uploads/images/2018/1125/222153_b51bfcb4_2162369.png "屏幕截图.png")
+
 维护一个`selectList`列表, 用来存储被筛选出的英雄信息. 使用`query()`函数进行查找. 如果未进行查找, 则显示为全英雄列表或收藏列表, 否则显示筛选列表.
 
 ```
