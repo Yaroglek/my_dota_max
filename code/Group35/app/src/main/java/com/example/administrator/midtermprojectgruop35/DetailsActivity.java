@@ -81,7 +81,7 @@ public class DetailsActivity extends AppCompatActivity {
                 final EditText inputServer = new EditText(DetailsActivity.this);
                 AlertDialog.Builder builder = new AlertDialog.Builder(DetailsActivity.this);
                 builder.setTitle("力量");
-                builder.setIcon(android.R.drawable.ic_dialog_info);
+                builder.setIcon(R.mipmap.strength_attribute_symbol);
                 builder.setView(inputServer);
                 builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
                     @Override
@@ -115,7 +115,7 @@ public class DetailsActivity extends AppCompatActivity {
                 final EditText inputServer = new EditText(DetailsActivity.this);
                 AlertDialog.Builder builder = new AlertDialog.Builder(DetailsActivity.this);
                 builder.setTitle("敏捷");
-                builder.setIcon(android.R.drawable.ic_dialog_info);
+                builder.setIcon(R.mipmap.agility_attribute_symbol);
                 builder.setView(inputServer);
                 builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
                     @Override
@@ -145,7 +145,7 @@ public class DetailsActivity extends AppCompatActivity {
                 final EditText inputServer = new EditText(DetailsActivity.this);
                 AlertDialog.Builder builder = new AlertDialog.Builder(DetailsActivity.this);
                 builder.setTitle("智力");
-                builder.setIcon(android.R.drawable.ic_dialog_info);
+                builder.setIcon(R.mipmap.intelligence_attribute_symbol);
                 builder.setView(inputServer);
                 builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
                     @Override
@@ -177,7 +177,7 @@ public class DetailsActivity extends AppCompatActivity {
                 final EditText inputServer = new EditText(DetailsActivity.this);
                 AlertDialog.Builder builder = new AlertDialog.Builder(DetailsActivity.this);
                 builder.setTitle("力量成长");
-                builder.setIcon(android.R.drawable.ic_dialog_info);
+                builder.setIcon(R.mipmap.strength_attribute_symbol_up);
                 builder.setView(inputServer);
                 builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
                     @Override
@@ -207,7 +207,7 @@ public class DetailsActivity extends AppCompatActivity {
                 final EditText inputServer = new EditText(DetailsActivity.this);
                 AlertDialog.Builder builder = new AlertDialog.Builder(DetailsActivity.this);
                 builder.setTitle("敏捷成长");
-                builder.setIcon(android.R.drawable.ic_dialog_info);
+                builder.setIcon(R.mipmap.agility_attribute_symbol_up);
                 builder.setView(inputServer);
                 builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
                     @Override
@@ -237,7 +237,7 @@ public class DetailsActivity extends AppCompatActivity {
                 final EditText inputServer = new EditText(DetailsActivity.this);
                 AlertDialog.Builder builder = new AlertDialog.Builder(DetailsActivity.this);
                 builder.setTitle("智力成长");
-                builder.setIcon(android.R.drawable.ic_dialog_info);
+                builder.setIcon(R.mipmap.intelligence_attribute_symbol_up);
                 builder.setView(inputServer);
                 builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
                     @Override
