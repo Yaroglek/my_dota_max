@@ -1,6 +1,10 @@
 package com.example.administrator.midtermprojectgruop35;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +56,7 @@ public class ListViewAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup group) {
         MyViewHolder holder;
-        Hero hero = mList.get(i);
+        final Hero hero = mList.get(i);
         if (view == null) {
             view = mInflater.inflate(R.layout.list_item, group, false);
             holder = new MyViewHolder();
@@ -97,6 +101,16 @@ public class ListViewAdapter extends BaseAdapter {
         holder.textViewEscape.setText(Integer.valueOf(hero.getEscape()) > 0 ? "○" : "");
         holder.textViewPusher.setText(Integer.valueOf(hero.getPusher()) > 0 ? "○" : "");
         holder.textViewInitiator.setText(Integer.valueOf(hero.getInitiator()) > 0 ? "○" : "");
+        holder.imageViewIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.instance, DetailsActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("id", hero.getId());
+                intent.putExtras(bundle);
+                MainActivity.instance.startActivity(intent);
+            }
+        });
         return view;
     }
 

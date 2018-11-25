@@ -32,6 +32,8 @@ import jxl.Workbook;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static MainActivity instance;
+
     private RelativeLayout mHead;//标题头
     private ListView mListView;
     private ListViewAdapter mAdapter;
@@ -78,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        instance = this;
         database = new Database(this);
         heroList = database.listHero();
         if (heroList.size() == 0) {
@@ -93,26 +96,13 @@ public class MainActivity extends AppCompatActivity {
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.attachToListView(mListView);
 
-
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("id", ((Hero) mAdapter.getItem(position)).getId());
-                intent.putExtras(bundle);
-                startActivity(intent);
-            }
-        });
-
-
         mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
                 final Hero hero = (Hero) mAdapter.getItem(position);
                 if (collectFlag) {
-                    dialog.setMessage("取消收藏?");
+                    dialog.setMessage("取消收藏 " + hero.getChineseName() + " ?");
                     dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
@@ -124,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                     });
                 }
                 else {
-                    dialog.setMessage("收藏英雄?");
+                    dialog.setMessage("收藏英雄 " + hero.getChineseName() + " ?");
                     dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
@@ -599,7 +589,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
 }
 
 
