@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
     private Database database;
     private boolean collectFlag;
     private CustomHScrollView mScrollView;
-
     private FloatingActionButton fab;
     private ImageView strength;
     private ImageView agility;

@@ -5,15 +5,15 @@
     android:background="@color/white"
     android:descendantFocusability="blocksDescendants"
     android:orientation="horizontal"
-    android:padding="5dp" >
+    android:padding="5sp" >
 
     <ImageView
         android:id="@+id/imageViewIcon"
-        android:layout_width="80dp"
-        android:layout_height="45dp"
+        android:layout_width="80sp"
+        android:layout_height="45sp"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2sp"
+        android:layout_marginRight="2sp"
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:maxLines="2"
@@ -27,7 +27,7 @@
     <com.example.administrator.midtermprojectgruop35.InterceptScrollLinearLayout
         android:id="@+id/scrollContainter"
         android:layout_width="fill_parent"
-        android:layout_height="45dp"
+        android:layout_height="45sp"
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@id/imageViewIcon"
         android:focusable="false" >
@@ -35,7 +35,7 @@
         <com.example.administrator.midtermprojectgruop35.CustomHScrollView
             android:id="@+id/h_scrollView"
             android:layout_width="fill_parent"
-            android:layout_height="45dp"
+            android:layout_height="45sp"
             android:focusable="false"
             android:scrollbars="none" >
 
@@ -46,7 +46,7 @@
                 android:orientation="horizontal" >
 
                 <LinearLayout
-                    android:layout_width="80dp"
+                    android:layout_width="80sp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_gravity="center"
@@ -56,8 +56,8 @@
                         android:id="@+id/textViewChineseName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
+                        android:layout_marginLeft="2sp"
+                        android:layout_marginRight="2sp"
                         android:text="英雄"
                         android:textColor="@color/black"
                         android:gravity="center"
@@ -67,7 +67,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="80dp"
+                    android:layout_width="80sp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_gravity="center"
@@ -77,8 +77,8 @@
                         android:id="@+id/textViewSpecies"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
+                        android:layout_marginLeft="2sp"
+                        android:layout_marginRight="2sp"
                         android:text="主属性"
                         android:textColor="@color/black"
                         android:gravity="center"
@@ -88,7 +88,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="80dp"
+                    android:layout_width="80sp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_gravity="center"
@@ -98,8 +98,8 @@
                         android:id="@+id/textViewAttackMode"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
+                        android:layout_marginLeft="2sp"
+                        android:layout_marginRight="2sp"
                         android:text="攻击方式"
                         android:gravity="center"
                         android:textColor="@color/black"
@@ -109,7 +109,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="80dp"
+                    android:layout_width="80sp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_gravity="center"
@@ -119,8 +119,8 @@
                         android:id="@+id/textViewDifficult"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
+                        android:layout_marginLeft="2sp"
+                        android:layout_marginRight="2sp"
                         android:gravity="center"
                         android:text="难度"
                         android:textColor="@color/black"
@@ -130,7 +130,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="80dp"
+                    android:layout_width="80sp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_gravity="center"
@@ -140,8 +140,8 @@
                         android:id="@+id/textViewCarry"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
+                        android:layout_marginLeft="2sp"
+                        android:layout_marginRight="2sp"
                         android:gravity="center"
                         android:text="核心"
                         android:textColor="@color/black"
@@ -151,7 +151,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="80dp"
+                    android:layout_width="80sp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_gravity="center"
@@ -161,8 +161,8 @@
                         android:id="@+id/textViewSupport"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
+                        android:layout_marginLeft="2sp"
+                        android:layout_marginRight="2sp"
                         android:gravity="center"
                         android:text="辅助"
                         android:textColor="@color/black"
@@ -172,7 +172,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="80dp"
+                    android:layout_width="80sp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_gravity="center"
@@ -182,8 +182,8 @@
                         android:id="@+id/textViewNuker"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
+                        android:layout_marginLeft="2sp"
+                        android:layout_marginRight="2sp"
                         android:gravity="center"
                         android:text="爆发"
                         android:textColor="@color/black"
@@ -193,7 +193,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="80dp"
+                    android:layout_width="80sp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_gravity="center"
@@ -203,8 +203,8 @@
                         android:id="@+id/textViewDisabler"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
+                        android:layout_marginLeft="2sp"
+                        android:layout_marginRight="2sp"
                         android:gravity="center"
                         android:text="控制"
                         android:textColor="@color/black"
@@ -214,7 +214,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="80dp"
+                    android:layout_width="80sp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_gravity="center"
@@ -224,8 +224,8 @@
                         android:id="@+id/textViewJungler"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
+                        android:layout_marginLeft="2sp"
+                        android:layout_marginRight="2sp"
                         android:gravity="center"
                         android:text="打野"
                         android:textColor="@color/black"
@@ -235,7 +235,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="80dp"
+                    android:layout_width="80sp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_gravity="center"
@@ -245,8 +245,8 @@
                         android:id="@+id/textViewDurable"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
+                        android:layout_marginLeft="2sp"
+                        android:layout_marginRight="2sp"
                         android:gravity="center"
                         android:text="耐久"
                         android:textColor="@color/black"
@@ -256,7 +256,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="80dp"
+                    android:layout_width="80sp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_gravity="center"
@@ -266,8 +266,8 @@
                         android:id="@+id/textViewEscape"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
+                        android:layout_marginLeft="2sp"
+                        android:layout_marginRight="2sp"
                         android:gravity="center"
                         android:text="逃生"
                         android:textColor="@color/black"
@@ -277,7 +277,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="80dp"
+                    android:layout_width="80sp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_gravity="center"
@@ -287,8 +287,8 @@
                         android:id="@+id/textViewPusher"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
+                        android:layout_marginLeft="2sp"
+                        android:layout_marginRight="2sp"
                         android:gravity="center"
                         android:text="推进"
                         android:textColor="@color/black"
@@ -298,7 +298,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="80dp"
+                    android:layout_width="80sp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_gravity="center"
@@ -308,8 +308,8 @@
                         android:id="@+id/textViewInitiator"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
+                        android:layout_marginLeft="2sp"
+                        android:layout_marginRight="2sp"
                         android:gravity="center"
                         android:text="先手"
                         android:textColor="@color/black"

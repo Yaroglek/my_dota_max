@@ -13,20 +13,20 @@
         android:orientation="horizontal">
         <TextView
             android:id="@+id/detail_name"
-            android:layout_height="45dp"
+            android:layout_height="45sp"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:background="@color/white"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:text="text"
-            android:paddingLeft="10dp"
+            android:paddingLeft="10sp"
             />
 
         <ImageView
             android:id="@+id/detail_mini_img"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="45sp"
+            android:layout_height="45sp"
             android:src="@mipmap/abaddon_minimap_icon"
             />
     </LinearLayout>
@@ -98,7 +98,7 @@
             android:text="难度：★★★"
             android:textStyle="bold"
             android:textSize="22sp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="20sp"
             />
 
     </LinearLayout>
@@ -110,7 +110,7 @@
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/line_1"
         android:gravity="center"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="5sp"
         >
 
         <ImageView
@@ -123,14 +123,14 @@
 
         <TextView
             android:id="@+id/detail_strength"
-            android:layout_height="45dp"
+            android:layout_height="45sp"
             android:layout_width="wrap_content"
             android:textSize="25sp"
             app:layout_constraintLeft_toRightOf="@id/detail_strength_im"
             app:layout_constraintTop_toBottomOf="@id/detail_mp"
             android:text="test"
             android:textStyle="bold"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="20sp"
             />
 
         <ImageView
@@ -139,18 +139,18 @@
             android:layout_height="wrap_content"
             android:src = "@mipmap/agility_attribute_symbol"
             app:layout_constraintLeft_toRightOf="@id/detail_strength"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="20sp"
             />
 
         <TextView
             android:id="@+id/detail_agility"
-            android:layout_height="45dp"
+            android:layout_height="45sp"
             android:layout_width="wrap_content"
             android:textSize="25sp"
             app:layout_constraintLeft_toRightOf="@id/detail_agility_im"
             android:text="test"
             android:textStyle="bold"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="20sp"
             />
 
 
@@ -160,18 +160,18 @@
             android:layout_height="wrap_content"
             android:src = "@mipmap/intelligence_attribute_symbol"
             app:layout_constraintLeft_toRightOf="@id/detail_agility"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="20sp"
             />
 
         <TextView
             android:id="@+id/detail_iq"
-            android:layout_height="45dp"
+            android:layout_height="45sp"
             android:layout_width="wrap_content"
             android:textSize="25sp"
             app:layout_constraintLeft_toRightOf="@id/detail_iq_im"
             android:text="test"
             android:textStyle="bold"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="20sp"
             />
 
     </LinearLayout>
@@ -182,7 +182,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/line_2"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="5sp"
         android:gravity="center">
 
         <ImageView
@@ -195,12 +195,12 @@
 
         <TextView
             android:id="@+id/detail_up_strength"
-            android:layout_height="45dp"
+            android:layout_height="45sp"
             android:layout_width="wrap_content"
             android:textSize="25sp"
             android:text="test"
             android:textStyle="bold"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="20sp"
             />
 
         <ImageView
@@ -208,17 +208,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src = "@mipmap/agility_attribute_symbol_up"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="20sp"
             />
 
         <TextView
             android:id="@+id/detail_up_agility"
-            android:layout_height="45dp"
+            android:layout_height="45sp"
             android:layout_width="wrap_content"
             android:textSize="25sp"
             android:text="test"
             android:textStyle="bold"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="20sp"
             />
 
         <ImageView
@@ -226,17 +226,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src = "@mipmap/intelligence_attribute_symbol_up"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="20sp"
             />
 
         <TextView
             android:id="@+id/detail_up_iq"
-            android:layout_height="45dp"
+            android:layout_height="45sp"
             android:layout_width="wrap_content"
             android:textSize="25sp"
             android:text="test"
             android:textStyle="bold"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="20sp"
             />
     </LinearLayout>
 
