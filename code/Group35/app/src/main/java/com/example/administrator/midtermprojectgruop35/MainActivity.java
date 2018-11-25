@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
     private RelativeLayout mHead;//标题头
     private ListView mListView;
-    private List<TestData> mDataList;
     private ListViewAdapter mAdapter;
     private int leftPos;//用于记录CustomHScrollView的初始位置
     private int topPos;
@@ -48,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         initView();
-        initData();
+        mAdapter = new ListViewAdapter(this, heroList, mHead);
+        mListView.setAdapter(mAdapter);
     }
 
     private void initView(){
@@ -62,31 +62,6 @@ public class MainActivity extends AppCompatActivity {
         mListView.setOnTouchListener(new MyTouchLinstener());
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.attachToListView(mListView);
-    }
-
-    /**
-     * 加载数据
-     */
-    private void initData(){
-                mDataList = new ArrayList<>();
-                TestData data = null;
-                for (int i = 1; i <= 30; i++) {
-                    data = new TestData();
-                    data.setText1("第"+i+"行-1");
-                    data.setText2("第"+i+"行-2");
-                    data.setText3("第"+i+"行-3");
-                    data.setText4("第"+i+"行-4");
-                    data.setText5("第"+i+"行-5");
-            data.setText6("第"+i+"行-6");
-            data.setText7("第"+i+"行-7");
-            data.setText8("第"+i+"行-8");
-            data.setText9("第"+i+"行-9");
-            data.setText10("第"+i+"行-10");
-            data.setText11("第"+i+"行-11");
-            data.setText12("第"+i+"行-12");
-            mDataList.add(data);
-        }
-        setData();
     }
 
     private void setData(){
@@ -116,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
 
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            initData();//刷新，重新加载数据
             mScrollView.smoothScrollTo(leftPos, topPos);//每次刷新数据都让CustomHScrollView回到初始位置，避免错乱
             if (mAdapter != null){
                 mAdapter.notifyDataSetChanged();

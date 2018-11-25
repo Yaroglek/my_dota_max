@@ -25,7 +25,7 @@
 
 
     <com.example.administrator.midtermprojectgruop35.InterceptScrollLinearLayout
-        android:id="@+id/scroollContainter"
+        android:id="@+id/scrollContainter"
         android:layout_width="fill_parent"
         android:layout_height="45dp"
         android:layout_alignParentRight="true"

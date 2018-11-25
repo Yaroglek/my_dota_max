@@ -47,26 +47,33 @@ public class ListViewAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup group) {
+        MyViewHolder holder;
         Hero hero = mList.get(i);
-        view = mInflater.inflate(R.layout.list_item, group, false);
-        MyViewHolder holder = new MyViewHolder();
-        CustomHScrollView scrollView = (CustomHScrollView) view.findViewById(R.id.h_scrollView);
-        holder.scrollView = scrollView;
-        holder.imageViewIcon = (ImageView) view.findViewById(R.id.imageViewIcon);
-        holder.textViewChineseName = (TextView) view.findViewById(R.id.textViewChineseName);
-        holder.textViewSpecies = (TextView) view.findViewById(R.id.textViewSpecies);
-        holder.textViewAttackMode = (TextView) view.findViewById(R.id.textViewAttackMode);
-        holder.textViewCarry = (TextView) view.findViewById(R.id.textViewCarry);
-        holder.textViewSupport = (TextView) view.findViewById(R.id.textViewSupport);
-        holder.textViewNuker = (TextView) view.findViewById(R.id.textViewNuker);
-        holder.textViewDisabler = (TextView) view.findViewById(R.id.textViewDisabler);
-        holder.textViewJungler = (TextView) view.findViewById(R.id.textViewJungler);
-        holder.textViewDurable = (TextView) view.findViewById(R.id.textViewDurable);
-        holder.textViewEscape = (TextView) view.findViewById(R.id.textViewEscape);
-        holder.textViewPusher = (TextView) view.findViewById(R.id.textViewPusher);
-        holder.textViewInitiator = (TextView) view.findViewById(R.id.textViewInitiator);
-        CustomHScrollView headScrollView = (CustomHScrollView) mHead.findViewById(R.id.h_scrollView);
-        headScrollView.AddOnScrollChangedListener(new OnScrollChangedListenerImp(scrollView));
+        if (view == null) {
+            view = mInflater.inflate(R.layout.list_item, group, false);
+            holder = new MyViewHolder();
+            CustomHScrollView scrollView = (CustomHScrollView) view.findViewById(R.id.h_scrollView);
+            holder.scrollView = scrollView;
+            holder.imageViewIcon = (ImageView) view.findViewById(R.id.imageViewIcon);
+            holder.textViewChineseName = (TextView) view.findViewById(R.id.textViewChineseName);
+            holder.textViewSpecies = (TextView) view.findViewById(R.id.textViewSpecies);
+            holder.textViewAttackMode = (TextView) view.findViewById(R.id.textViewAttackMode);
+            holder.textViewCarry = (TextView) view.findViewById(R.id.textViewCarry);
+            holder.textViewSupport = (TextView) view.findViewById(R.id.textViewSupport);
+            holder.textViewNuker = (TextView) view.findViewById(R.id.textViewNuker);
+            holder.textViewDisabler = (TextView) view.findViewById(R.id.textViewDisabler);
+            holder.textViewJungler = (TextView) view.findViewById(R.id.textViewJungler);
+            holder.textViewDurable = (TextView) view.findViewById(R.id.textViewDurable);
+            holder.textViewEscape = (TextView) view.findViewById(R.id.textViewEscape);
+            holder.textViewPusher = (TextView) view.findViewById(R.id.textViewPusher);
+            holder.textViewInitiator = (TextView) view.findViewById(R.id.textViewInitiator);
+            CustomHScrollView headScrollView = (CustomHScrollView) mHead.findViewById(R.id.h_scrollView);
+            headScrollView.AddOnScrollChangedListener(new OnScrollChangedListenerImp(scrollView));
+            view.setTag(holder);
+        }
+        else {
+            holder = (MyViewHolder) view.getTag();
+        }
         holder.imageViewIcon.setImageBitmap(hero.getIcon());
         holder.textViewChineseName.setText(hero.getChineseName());
         holder.textViewSpecies.setText(Hero.speciesToString(hero.getSpecies()));
@@ -80,7 +87,6 @@ public class ListViewAdapter extends BaseAdapter {
         holder.textViewEscape.setText(Integer.valueOf(hero.getEscape()) > 0 ? "○" : "");
         holder.textViewPusher.setText(Integer.valueOf(hero.getPusher()) > 0 ? "○" : "");
         holder.textViewInitiator.setText(Integer.valueOf(hero.getInitiator()) > 0 ? "○" : "");
-        view.setTag(holder);
         return view;
     }
 
