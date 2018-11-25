@@ -8,7 +8,7 @@
     android:padding="5dp" >
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewIcon"
         android:layout_width="80dp"
         android:layout_height="45dp"
         android:layout_alignParentLeft="true"
@@ -29,7 +29,7 @@
         android:layout_width="fill_parent"
         android:layout_height="45dp"
         android:layout_alignParentRight="true"
-        android:layout_toRightOf="@id/imageView"
+        android:layout_toRightOf="@id/imageViewIcon"
         android:focusable="false" >
 
         <com.example.administrator.midtermprojectgruop35.CustomHScrollView
@@ -53,12 +53,12 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        android:id="@+id/textView_2"
+                        android:id="@+id/textViewChineseName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
-                        android:text="标题2"
+                        android:text="英雄"
                         android:textColor="@color/black"
                         android:gravity="center"
                         android:textSize="14sp"
@@ -74,12 +74,12 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        android:id="@+id/textView_3"
+                        android:id="@+id/textViewSpecies"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
-                        android:text="标题3"
+                        android:text="主属性"
                         android:textColor="@color/black"
                         android:gravity="center"
                         android:textSize="14sp"
@@ -95,12 +95,12 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        android:id="@+id/textView_4"
+                        android:id="@+id/textViewAttackMode"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
-                        android:text="标题4"
+                        android:text="攻击方式"
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:textSize="14sp"
@@ -116,13 +116,13 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        android:id="@+id/textView_5"
+                        android:id="@+id/textViewCarry"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:gravity="center"
-                        android:text="标题5"
+                        android:text="核心"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -137,13 +137,13 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        android:id="@+id/textView_6"
+                        android:id="@+id/textViewSupport"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:gravity="center"
-                        android:text="标题6"
+                        android:text="辅助"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -158,13 +158,13 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        android:id="@+id/textView_7"
+                        android:id="@+id/textViewNuker"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:gravity="center"
-                        android:text="标题7"
+                        android:text="爆发"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -179,13 +179,13 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        android:id="@+id/textView_8"
+                        android:id="@+id/textViewDisabler"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:gravity="center"
-                        android:text="标题8"
+                        android:text="控制"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -200,13 +200,13 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        android:id="@+id/textView_9"
+                        android:id="@+id/textViewJungler"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:gravity="center"
-                        android:text="标题9"
+                        android:text="打野"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -221,13 +221,13 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        android:id="@+id/textView_10"
+                        android:id="@+id/textViewDurable"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:gravity="center"
-                        android:text="标题10"
+                        android:text="耐久"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -242,28 +242,60 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        android:id="@+id/textView_11"
+                        android:id="@+id/textViewEscape"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:gravity="center"
-                        android:text="标题11"
+                        android:text="逃生"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/textView_12"
+                <LinearLayout
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="标题12"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                    android:layout_gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textViewPusher"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:gravity="center"
+                        android:text="推进"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textViewInitiator"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:gravity="center"
+                        android:text="先手"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                </LinearLayout>
             </LinearLayout>
         </com.example.administrator.midtermprojectgruop35.CustomHScrollView>
     </com.example.administrator.midtermprojectgruop35.InterceptScrollLinearLayout>

@@ -7,6 +7,30 @@ public class Hero {
     public enum Species {strength, agility, intelligence};
     public enum AttackMode {melee, ranged};
 
+    public static String speciesToString(Species species) {
+        switch (species) {
+            case strength:
+                return "力量";
+            case agility:
+                return "敏捷";
+            case intelligence:
+                return "智力";
+            default:
+                return "";
+        }
+    }
+
+    public static String attackModeToString(AttackMode attackMode) {
+        switch (attackMode) {
+            case melee:
+                return "近战";
+            case ranged:
+                return "远程";
+            default:
+                return "";
+        }
+    }
+
     private int id;
     private String name;
     private Bitmap icon;

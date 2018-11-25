@@ -15,6 +15,8 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 
+import com.melnykov.fab.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Hero> heroList;
     private Database database;
     CustomHScrollView mScrollView;
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,21 +60,23 @@ public class MainActivity extends AppCompatActivity {
         mHead.setClickable(true);
         mHead.setOnTouchListener(new MyTouchLinstener());
         mListView.setOnTouchListener(new MyTouchLinstener());
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.attachToListView(mListView);
     }
 
     /**
      * 加载数据
      */
     private void initData(){
-        mDataList = new ArrayList<>();
-        TestData data = null;
-        for (int i = 1; i <= 30; i++) {
-            data = new TestData();
-            data.setText1("第"+i+"行-1");
-            data.setText2("第"+i+"行-2");
-            data.setText3("第"+i+"行-3");
-            data.setText4("第"+i+"行-4");
-            data.setText5("第"+i+"行-5");
+                mDataList = new ArrayList<>();
+                TestData data = null;
+                for (int i = 1; i <= 30; i++) {
+                    data = new TestData();
+                    data.setText1("第"+i+"行-1");
+                    data.setText2("第"+i+"行-2");
+                    data.setText3("第"+i+"行-3");
+                    data.setText4("第"+i+"行-4");
+                    data.setText5("第"+i+"行-5");
             data.setText6("第"+i+"行-6");
             data.setText7("第"+i+"行-7");
             data.setText8("第"+i+"行-8");
