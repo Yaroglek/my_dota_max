@@ -13,6 +13,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.AdapterView;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
@@ -95,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
         mListView.setAdapter(mAdapter);
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.attachToListView(mListView);
+
+
 
         mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override

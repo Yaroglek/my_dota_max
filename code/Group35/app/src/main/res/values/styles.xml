@@ -21,7 +21,6 @@
 
     <style name="ImageTranslucentTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
-        <item name="android:launchMode">singleTask</item>
 
     </style>
 

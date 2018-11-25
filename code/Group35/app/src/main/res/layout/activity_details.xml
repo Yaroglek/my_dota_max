@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
     <LinearLayout
         android:id="@+id/detail_head"
         android:layout_width="match_parent"
@@ -41,6 +40,7 @@
         app:layout_constraintTop_toBottomOf="@id/detail_head"
         />
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,180 +69,190 @@
             android:textStyle="bold"
             />
 
-
     </LinearLayout>
+
 
     <LinearLayout
-        android:id="@+id/line_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/detail_image"
-        android:gravity="center"
-        android:layout_marginTop="5dp"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/detail_image"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/detail_attack_mode"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/line_1"
+            android:layout_width="match_parent"
+            android:layout_height="29dp"
+            app:layout_constraintTop_toBottomOf="@id/detail_image"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:id="@+id/detail_attack_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="29dp"
+                android:textSize="20sp"
+                android:text="近战"
+                android:textStyle="bold"
+                />
+
+
+            <TextView
+                android:id="@+id/detail_difficulty_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="29dp"
+                android:text="难度：★★★"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginLeft="20dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/line_2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="22sp"
-            android:text="近战"
-            android:textStyle="bold"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/line_1"
+            android:gravity="center"
+            android:layout_marginTop="5sp"
+            >
+
+            <ImageView
+                android:id="@+id/detail_strength_im"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/strength_attribute_symbol"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/detail_strength"
+                android:layout_height="45sp"
+                android:layout_width="80sp"
+                android:textSize="25sp"
+                app:layout_constraintLeft_toRightOf="@id/detail_strength_im"
+                app:layout_constraintTop_toBottomOf="@id/detail_mp"
+                android:text="test"
+                android:textStyle="bold"
+                android:layout_marginLeft="5sp"
+                />
+
+            <ImageView
+                android:id="@+id/detail_agility_im"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src = "@mipmap/agility_attribute_symbol"
+                app:layout_constraintLeft_toRightOf="@id/detail_strength"
+                android:layout_marginLeft="5sp"
+                />
+
+            <TextView
+                android:id="@+id/detail_agility"
+                android:layout_height="45sp"
+                android:layout_width="80sp"
+                android:textSize="25sp"
+                app:layout_constraintLeft_toRightOf="@id/detail_agility_im"
+                android:text="test"
+                android:textStyle="bold"
+                android:layout_marginLeft="5sp"
+                />
+
+
+            <ImageView
+                android:id="@+id/detail_iq_im"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src = "@mipmap/intelligence_attribute_symbol"
+                app:layout_constraintLeft_toRightOf="@id/detail_agility"
+                android:layout_marginLeft="5sp"
+                />
+
+            <TextView
+                android:id="@+id/detail_iq"
+                android:layout_height="45sp"
+                android:layout_width="80sp"
+                android:textSize="25sp"
+                app:layout_constraintLeft_toRightOf="@id/detail_iq_im"
+                android:text="test"
+                android:textStyle="bold"
+                android:layout_marginLeft="5sp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/line_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/line_2"
+            android:layout_marginTop="5sp"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/detail_up_strength_im"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src = "@mipmap/strength_attribute_symbol_up"
+                app:layout_constraintLeft_toRightOf="@id/detail_strength"
+                />
+
+            <TextView
+                android:id="@+id/detail_up_strength"
+                android:layout_height="45sp"
+                android:layout_width="80sp"
+                android:textSize="25sp"
+                android:text="test"
+                android:textStyle="bold"
+                android:layout_marginLeft="5sp"
+                />
+
+            <ImageView
+                android:id="@+id/detail_up_agility_im"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src = "@mipmap/agility_attribute_symbol_up"
+                android:layout_marginLeft="5sp"
+                />
+
+            <TextView
+                android:id="@+id/detail_up_agility"
+                android:layout_height="45sp"
+                android:layout_width="80sp"
+                android:textSize="25sp"
+                android:text="test"
+                android:textStyle="bold"
+                android:layout_marginLeft="5sp"
+                />
+
+            <ImageView
+                android:id="@+id/detail_up_iq_im"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src = "@mipmap/intelligence_attribute_symbol_up"
+                android:layout_marginLeft="5sp"
+                />
+
+            <TextView
+                android:id="@+id/detail_up_iq"
+                android:layout_height="45sp"
+                android:layout_width="80sp"
+                android:textSize="25sp"
+                android:text="test"
+                android:textStyle="bold"
+                android:layout_marginLeft="5sp"
+                />
+        </LinearLayout>
+
+        <com.example.administrator.midtermprojectgruop35.RadarView
+            android:id="@+id/rdv"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
             />
 
-
-        <TextView
-            android:id="@+id/detail_difficulty_rate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="难度：★★★"
-            android:textStyle="bold"
-            android:textSize="22sp"
-            android:layout_marginLeft="20sp"
-            />
 
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/line_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/line_1"
-        android:gravity="center"
-        android:layout_marginTop="5sp"
-        >
-
-        <ImageView
-            android:id="@+id/detail_strength_im"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/strength_attribute_symbol"
-            app:layout_constraintStart_toStartOf="parent"
-            />
-
-        <TextView
-            android:id="@+id/detail_strength"
-            android:layout_height="45sp"
-            android:layout_width="80sp"
-            android:textSize="25sp"
-            app:layout_constraintLeft_toRightOf="@id/detail_strength_im"
-            app:layout_constraintTop_toBottomOf="@id/detail_mp"
-            android:text="test"
-            android:textStyle="bold"
-            android:layout_marginLeft="5sp"
-            />
-
-        <ImageView
-            android:id="@+id/detail_agility_im"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src = "@mipmap/agility_attribute_symbol"
-            app:layout_constraintLeft_toRightOf="@id/detail_strength"
-            android:layout_marginLeft="5sp"
-            />
-
-        <TextView
-            android:id="@+id/detail_agility"
-            android:layout_height="45sp"
-            android:layout_width="80sp"
-            android:textSize="25sp"
-            app:layout_constraintLeft_toRightOf="@id/detail_agility_im"
-            android:text="test"
-            android:textStyle="bold"
-            android:layout_marginLeft="5sp"
-            />
-
-
-        <ImageView
-            android:id="@+id/detail_iq_im"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src = "@mipmap/intelligence_attribute_symbol"
-            app:layout_constraintLeft_toRightOf="@id/detail_agility"
-            android:layout_marginLeft="5sp"
-            />
-
-        <TextView
-            android:id="@+id/detail_iq"
-            android:layout_height="45sp"
-            android:layout_width="80sp"
-            android:textSize="25sp"
-            app:layout_constraintLeft_toRightOf="@id/detail_iq_im"
-            android:text="test"
-            android:textStyle="bold"
-            android:layout_marginLeft="5sp"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/line_3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/line_2"
-        android:layout_marginTop="5sp"
-        android:gravity="center">
-
-        <ImageView
-            android:id="@+id/detail_up_strength_im"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src = "@mipmap/strength_attribute_symbol_up"
-            app:layout_constraintLeft_toRightOf="@id/detail_strength"
-            />
-
-        <TextView
-            android:id="@+id/detail_up_strength"
-            android:layout_height="45sp"
-            android:layout_width="80sp"
-            android:textSize="25sp"
-            android:text="test"
-            android:textStyle="bold"
-            android:layout_marginLeft="5sp"
-            />
-
-        <ImageView
-            android:id="@+id/detail_up_agility_im"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src = "@mipmap/agility_attribute_symbol_up"
-            android:layout_marginLeft="5sp"
-            />
-
-        <TextView
-            android:id="@+id/detail_up_agility"
-            android:layout_height="45sp"
-            android:layout_width="80sp"
-            android:textSize="25sp"
-            android:text="test"
-            android:textStyle="bold"
-            android:layout_marginLeft="5sp"
-            />
-
-        <ImageView
-            android:id="@+id/detail_up_iq_im"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src = "@mipmap/intelligence_attribute_symbol_up"
-            android:layout_marginLeft="5sp"
-            />
-
-        <TextView
-            android:id="@+id/detail_up_iq"
-            android:layout_height="45sp"
-            android:layout_width="80sp"
-            android:textSize="25sp"
-            android:text="test"
-            android:textStyle="bold"
-            android:layout_marginLeft="5sp"
-            />
-    </LinearLayout>
-
-
-
-
 
 
 </android.support.constraint.ConstraintLayout>

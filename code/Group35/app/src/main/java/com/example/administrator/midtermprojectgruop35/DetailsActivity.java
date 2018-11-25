@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DetailsActivity extends AppCompatActivity {
 
     private Hero hero;
@@ -261,5 +264,27 @@ public class DetailsActivity extends AppCompatActivity {
                 builder.show();
             }
         });
+        RadarView mRdv = (RadarView) findViewById(R.id.rdv);
+        List<Double> data;
+        data=new ArrayList<>(9);
+        double temp = hero.getCarry();
+        data.add(temp);
+        temp = hero.getSupport();
+        data.add(temp);
+        temp = hero.getNuker();
+        data.add(temp);
+        temp = hero.getDisabler();
+        data.add(temp);
+        temp = hero.getJungler();
+        data.add(temp);
+        temp = hero.getDurable();
+        data.add(temp);
+        temp = hero.getEscape();
+        data.add(temp);
+        temp = hero.getPusher();
+        data.add(temp);
+        temp = hero.getInitiator();
+        data.add(temp);
+        mRdv.setData(data);
     }
 }
