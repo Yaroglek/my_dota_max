@@ -13,33 +13,144 @@
 
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/strength"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:id="@+id/imageViewStrength"
         android:src="@mipmap/strength_attribute_symbol"
         />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/agility"
-        android:layout_toRightOf="@+id/strength"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:id="@+id/imageViewAgility"
+        android:layout_toRightOf="@id/imageViewStrength"
         android:src="@mipmap/agility_attribute_symbol"
         />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/intelligence"
-        android:layout_toRightOf="@+id/agility"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:id="@+id/imageViewIntelligence"
+        android:layout_toRightOf="@id/imageViewAgility"
         android:src="@mipmap/intelligence_attribute_symbol"
         />
+
+    <TextView
+        android:id="@+id/textViewMelee0"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_toRightOf="@id/imageViewIntelligence"
+        android:layout_marginLeft="6dp"
+        android:textColor="@color/gray"
+        android:text="近"
+        android:gravity="center"
+        android:textSize="22dp" />
+
+    <TextView
+        android:id="@+id/textViewRanged0"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_toRightOf="@id/textViewMelee0"
+        android:textColor="@color/gray"
+        android:text="远"
+        android:gravity="center"
+        android:textSize="22dp" />
+
+    <TextView
+        android:id="@+id/textViewCarry0"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_toRightOf="@id/textViewRanged0"
+        android:textColor="@color/gray"
+        android:text="核"
+        android:gravity="center"
+        android:textSize="22dp" />
+
+    <TextView
+        android:id="@+id/textViewSupport0"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_toRightOf="@id/textViewCarry0"
+        android:textColor="@color/gray"
+        android:text="辅"
+        android:gravity="center"
+        android:textSize="22dp" />
+
+    <TextView
+        android:id="@+id/textViewNuker0"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_toRightOf="@id/textViewSupport0"
+        android:textColor="@color/gray"
+        android:text="爆"
+        android:gravity="center"
+        android:textSize="22dp" />
+
+    <TextView
+        android:id="@+id/textViewDisabler0"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_toRightOf="@id/textViewNuker0"
+        android:textColor="@color/gray"
+        android:text="控"
+        android:gravity="center"
+        android:textSize="22dp" />
+
+    <TextView
+        android:id="@+id/textViewJungler0"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_toRightOf="@id/textViewDisabler0"
+        android:textColor="@color/gray"
+        android:text="野"
+        android:gravity="center"
+        android:textSize="22dp" />
+
+    <TextView
+        android:id="@+id/textViewDurable0"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_toRightOf="@id/textViewJungler0"
+        android:textColor="@color/gray"
+        android:text="肉"
+        android:gravity="center"
+        android:textSize="22dp" />
+
+    <TextView
+        android:id="@+id/textViewEscape0"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_toRightOf="@id/textViewDurable0"
+        android:textColor="@color/gray"
+        android:text="逃"
+        android:gravity="center"
+        android:textSize="22dp" />
+
+    <TextView
+        android:id="@+id/textViewPusher0"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_toRightOf="@id/textViewEscape0"
+        android:textColor="@color/gray"
+        android:text="推"
+        android:gravity="center"
+        android:textSize="22dp" />
+
+    <TextView
+        android:id="@+id/textViewInitiator0"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_toRightOf="@id/textViewPusher0"
+        android:textColor="@color/gray"
+        android:text="先"
+        android:gravity="center"
+        android:textSize="22dp" />
 
     <include
         android:id="@+id/head_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/intelligence"
+        android:layout_below="@id/imageViewIntelligence"
         layout="@layout/list_item"
         />
 
@@ -52,7 +163,7 @@
         android:background="@null"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="32dp"
         android:textColor="@color/black"
         android:gravity="center"
         android:textSize="14sp"/>
