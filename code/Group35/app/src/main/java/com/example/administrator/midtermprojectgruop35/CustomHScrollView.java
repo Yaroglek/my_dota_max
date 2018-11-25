@@ -8,11 +8,6 @@ import android.widget.HorizontalScrollView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by hbh on 2017/3/15.
- * 自定义横向滚动控件
- * 重载了 onScrollChanged（滚动条变化）,监听每次的变化通知给滚动观察者
- */
 
 public class CustomHScrollView extends HorizontalScrollView {
 

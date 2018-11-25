@@ -124,7 +124,7 @@ public class ListViewAdapter extends BaseAdapter {
         @Override
         public void onScrollChanged(int l, int t, int oldl, int oldt) {
             mScrollViewArg.smoothScrollTo(l, t);
-            if (n == 1) {//记录滚动的起始位置，避免因刷新数据引起错乱
+            if (n == 1) {
                 new MainActivity().setPosData(oldl, oldt);
             }
             n++;

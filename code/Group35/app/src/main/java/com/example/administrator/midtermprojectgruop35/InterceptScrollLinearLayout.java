@@ -5,11 +5,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
 
-/**
- * Created by hbh on 2017/3/15.
- * 自定义一个布局
- * 用于拦截onTouch事件
- */
 
 public class InterceptScrollLinearLayout extends LinearLayout {
 
