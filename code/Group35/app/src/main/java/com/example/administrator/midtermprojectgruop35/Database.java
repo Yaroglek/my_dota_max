@@ -37,6 +37,7 @@ public class Database extends SQLiteOpenHelper {
         Bitmap bitmapIcon = hero.getIcon();
         bitmapIcon.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
         byte[] icon = byteArrayOutputStream.toByteArray();
+        byteArrayOutputStream = new ByteArrayOutputStream();
         Bitmap bitmapMinimapIcon = hero.getMinimapIcon();
         bitmapMinimapIcon.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
         byte[] minimapIcon = byteArrayOutputStream.toByteArray();
