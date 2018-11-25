@@ -76,7 +76,7 @@
         android:layout_margin="16dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:src="@drawable/ic_launcher"
+        android:src="@drawable/ic_like"
         fab:fab_colorNormal="@color/colorPrimary"
         fab:fab_colorPressed="@color/colorPrimaryDark"
         fab:fab_colorRipple="@color/gray" />

@@ -18,6 +18,7 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 
 import com.melnykov.fab.FloatingActionButton;
@@ -122,6 +123,16 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(collectFlag == false)
+                {
+                    fab.setImageDrawable(getResources().getDrawable(R.drawable.ic_back_round));
+                    Toast.makeText(getApplication(), "已进入收藏夹", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    fab.setImageDrawable(getResources().getDrawable(R.drawable.ic_like));
+                    Toast.makeText(getApplication(), "已退出收藏夹", Toast.LENGTH_SHORT).show();
+                }
                 strengthSelected = true;
                 agilittySelected = true;
                 intelligenceSelected = true;
